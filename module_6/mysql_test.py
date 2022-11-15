@@ -16,7 +16,6 @@ try:
           .format(config["user"], config["host"], config["database"]))
 
     input("\n\n Press any key to continue...")
-
     if db.is_connected():
         print("\n Connection established...")
 
