@@ -37,9 +37,35 @@ cursor = db.cursor()
 query = "SELECT studio_id, studio_name FROM studio;"
 cursor.execute(query)  # selecting three fields
 studios = cursor.fetchall()
+print("\n")
 print("-- DISPLAYING Studio RECORDS --")
 for studio in studios:
     print("Studio ID:{} \nStudio Name:{} \n".format(studio[0], studio[1]))  # three fields
     # print(x)
 # print("Studio ID: {} \n Studio Name:{} \n Email:{} \n", format(studio[0], studio[1], studio[2]))
+
+query = "SELECT genre_id, genre_name FROM genre;"
+cursor.execute(query)  # selecting three fields
+genres = cursor.fetchall()
+print("\n")
+print("-- DISPLAYING Genre RECORDS --")
+for genre in genres:
+    print("Genre Id:{} \nGenre Name:{} \n".format(genre[0], genre[1]))
+
+query = "SELECT studio_id, studio_name FROM studio;"
+cursor.execute(query)  # selecting three fields
+studios = cursor.fetchall()
+print("\n")
+print("-- DISPLAYING Studio RECORDS --")
+for studio in studios:
+    print("Studio ID:{} \nStudio Name:{} \n".format(studio[0], studio[1]))
+
+query = "SELECT studio_id, studio_name FROM studio;"
+cursor.execute(query)  # selecting three fields
+studios = cursor.fetchall()
+print("\n")
+print("-- DISPLAYING Studio RECORDS --")
+for studio in studios:
+    print("Studio ID:{} \nStudio Name:{} \n".format(studio[0], studio[1]))
+
 db.close()
