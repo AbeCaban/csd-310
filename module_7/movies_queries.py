@@ -52,20 +52,20 @@ print("-- DISPLAYING Genre RECORDS --")
 for genre in genres:
     print("Genre Id:{} \nGenre Name:{} \n".format(genre[0], genre[1]))
 
-query = "SELECT studio_id, studio_name FROM studio;"
+query = "SELECT film_name, film_runtime FROM film WHERE film_runtime <= 120;"
 cursor.execute(query)  # selecting three fields
-studios = cursor.fetchall()
+films = cursor.fetchall()
 print("\n")
-print("-- DISPLAYING Studio RECORDS --")
-for studio in studios:
-    print("Studio ID:{} \nStudio Name:{} \n".format(studio[0], studio[1]))
+print("-- DISPLAYING Short Film RECORDS --")
+for film in films:
+    print("Film Name:{} \nRuntime:{} \n".format(film[0], film[1]))
 
-query = "SELECT studio_id, studio_name FROM studio;"
+query = "SELECT film_name, film_director FROM film ORDER BY film_director ASC;"
 cursor.execute(query)  # selecting three fields
-studios = cursor.fetchall()
+films = cursor.fetchall()
 print("\n")
-print("-- DISPLAYING Studio RECORDS --")
-for studio in studios:
-    print("Studio ID:{} \nStudio Name:{} \n".format(studio[0], studio[1]))
+print("-- DISPLAYING Director RECORDS in Order --")
+for film in films:
+    print("Film Name:{} \nFilm Director:{} \n".format(film[0], film[1]))
 
 db.close()
