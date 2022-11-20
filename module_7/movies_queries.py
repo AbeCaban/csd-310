@@ -7,45 +7,21 @@ db = mysql.connector.connect(
         password="nerds",
         host="127.0.0.1",
         database="movies",
-        # "raise_on_warnings": True
         )
 
-# try:
-# db = (**config)
-
-#     print("\n Database user {} connected to MySQL on host {} with database {}"
-#           .format(config["user"], config["host"], config["database"]))
-#
-#     input("\n\n Press any key to continue...")
-#
-#     if db.is_connected():
-#         print("\n Connection established...")
-#
-# except mysql.connector.Error as err:
-#     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-#         print("   The supplied username or password are invalid")
-#
-#     elif err.errno == errorcode.ER_BAD_DB_ERROR:
-#         print("  The specified database does not exist")
-#
-#     else:
-#         print(err)
-#
-# finally:
 
 cursor = db.cursor()
 query = "SELECT studio_id, studio_name FROM studio;"
-cursor.execute(query)  # selecting three fields
+cursor.execute(query)
 studios = cursor.fetchall()
 print("\n")
 print("-- DISPLAYING Studio RECORDS --")
 for studio in studios:
-    print("Studio ID:{} \nStudio Name:{} \n".format(studio[0], studio[1]))  # three fields
-    # print(x)
-# print("Studio ID: {} \n Studio Name:{} \n Email:{} \n", format(studio[0], studio[1], studio[2]))
+    print("Studio ID:{} \nStudio Name:{} \n".format(studio[0], studio[1]))
+
 
 query = "SELECT genre_id, genre_name FROM genre;"
-cursor.execute(query)  # selecting three fields
+cursor.execute(query)
 genres = cursor.fetchall()
 print("\n")
 print("-- DISPLAYING Genre RECORDS --")
@@ -53,19 +29,19 @@ for genre in genres:
     print("Genre Id:{} \nGenre Name:{} \n".format(genre[0], genre[1]))
 
 query = "SELECT film_name, film_runtime FROM film WHERE film_runtime <= 120;"
-cursor.execute(query)  # selecting three fields
+cursor.execute(query)
 films = cursor.fetchall()
 print("\n")
 print("-- DISPLAYING Short Film RECORDS --")
 for film in films:
     print("Film Name:{} \nRuntime:{} \n".format(film[0], film[1]))
 
-query = "SELECT film_name, film_director FROM film ORDER BY film_director ASC;"
-cursor.execute(query)  # selecting three fields
+query = "SELECT film_name, film_director FROM film GROUP BY film_name, film_director ORDER BY film_director ASC;"
+cursor.execute(query)
 films = cursor.fetchall()
 print("\n")
 print("-- DISPLAYING Director RECORDS in Order --")
 for film in films:
-    print("Film Name:{} \nFilm Director:{} \n".format(film[0], film[1]))
+    print("Film Name:{} \nDirector:{} \n".format(film[0], film[1]))
 
 db.close()
