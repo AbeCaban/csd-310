@@ -1,3 +1,4 @@
+
 import mysql.connector
 from mysql.connector import errorcode
 
@@ -32,3 +33,4 @@ except mysql.connector.Error as err:
 
 finally:
     db.close()
+
