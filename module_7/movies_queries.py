@@ -1,7 +1,6 @@
 
 import mysql.connector
-from mysql.connector import errorcode
-# config
+
 db = mysql.connector.connect(
         user="abe",
         password="nerds",
