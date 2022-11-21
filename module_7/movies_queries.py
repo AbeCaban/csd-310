@@ -35,7 +35,7 @@ print("-- DISPLAYING Short Film RECORDS --")
 for film in films:
     print("Film Name:{} \nRuntime:{} \n".format(film[0], film[1]))
 
-query = "SELECT film_name, film_director FROM film GROUP BY film_name, film_director ORDER BY film_director;"
+query = "SELECT film_name, film_director FROM film ORDER BY film_director;"
 cursor.execute(query)
 films = cursor.fetchall()
 print("\n")
