@@ -7,6 +7,46 @@ db = mysql.connector.connect(
         )
 
 cursor = db.cursor()
+
+def show_films(cursor, title):
+
+        cursor.execute("""SELECT film_name as Name, film_director as Director, genre_name as Genre, studio_name as 'Studio Name' 
+                        from film INNER JOIN genre ON film.genre_id=genre.genre_id INNER JOIN studio ON film.studio_id = studio.studio_id""")
+
+        films = cursor.fetchall()
+        print("\n -- {} --".format(title))
+
+        for film in films:
+            print("Film Name: {}\nDirector: {}\nGenre Name ID: {}\nStudio Name: {}\n".format(film[0], film[1], film[2], film[3]))
+
+show_films(cursor, "Displaying Films")
+
+def show_films(cursor, title):
+
+        cursor.execute("""SELECT film_name as Name, film_director as Director, genre_name as Genre, studio_name as 'Studio Name' 
+                        from film INNER JOIN genre ON film.genre_id=genre.genre_id INNER JOIN studio ON film.studio_id = studio.studio_id""")
+
+        films = cursor.fetchall()
+        print("\n -- {} --".format(title))
+
+        for film in films:
+            print("Film Name: {}\nDirector: {}\nGenre Name ID: {}\nStudio Name: {}\n".format(film[0], film[1], film[2], film[3]))
+
+show_films(cursor, "Displaying Film After Insert")
+
+def show_films(cursor, title):
+
+        cursor.execute("""SELECT film_name as Name, film_director as Director, genre_name as Genre, studio_name as 'Studio Name' 
+                        from film INNER JOIN genre ON film.genre_id=genre.genre_id INNER JOIN studio ON film.studio_id = studio.studio_id""")
+
+        films = cursor.fetchall()
+        print("\n -- {} --".format(title))
+
+        for film in films:
+            print("Film Name: {}\nDirector: {}\nGenre Name ID: {}\nStudio Name: {}\n".format(film[0], film[1], film[2], film[3]))
+
+show_films(cursor, "Displaying Film After Update- Changed Alien To Horror --")
+
 def show_films(cursor, title):
 
         cursor.execute("""SELECT film_name as Name, film_director as Director, genre_name as Genre, studio_name as 'Studio Name' 
