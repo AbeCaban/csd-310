@@ -40,3 +40,5 @@ cursor.execute("DELETE FROM film WHERE film_id = 1;")
 db.commit()
 
 show_films(cursor, "Displaying Film After Delete")
+
+db.close()
